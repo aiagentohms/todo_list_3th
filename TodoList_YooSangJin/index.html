@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DAILY LIST</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <main class="page">
+        <header>
+            <p class="small-title">DAILY / LIST</p>
+            <h1>My Tasks</h1>
+            <p id="today"></p>
+        </header>
+
+        <section class="layout">
+            <form name="frmTodo" id="frmTodo" class="write-box">
+                <h2>New Task</h2>
+
+                <label>Date</label>
+                <input type="date" name="date">
+
+                <label>Title</label>
+                <input type="text" name="title" placeholder="할 일을 입력하세요">
+
+                <label>Note</label>
+                <textarea name="content" placeholder="간단한 내용을 입력하세요"></textarea>
+
+                <button type="submit" class="add-button">ADD TASK</button>
+            </form>
+
+            <div class="list-box">
+                <div id="filter-buttons" class="filters">
+                    <button type="button" class="filter active" data-filter="all">All</button>
+                    <button type="button" class="filter" data-filter="active">Active</button>
+                    <button type="button" class="filter" data-filter="completed">Completed</button>
+                </div>
+
+                <ul id="todo-items"></ul>
+
+                <div class="footer">
+                    <span id="todo-count">0 tasks left</span>
+                    <button type="button" id="clear-completed">Clear completed</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script type="text/html" id="tpl">
+        <li class="todo-item ${completedClass}">
+            <input type="checkbox" class="check-action" data-uid="${uid}" ${checked}>
+
+            <div class="todo-text">
+                <small>${date}</small>
+                <p class="todo-title">${title}</p>
+                <p>${content}</p>
+            </div>
+
+            <div class="item-buttons">
+                <button type="button" class="edit-action" data-uid="${uid}">Edit</button>
+                <button type="button" class="delete-action" data-uid="${uid}">Delete</button>
+            </div>
+        </li>
+    </script>
+
+    <script src="js/todo.js"></script>
+</body>
+</html>

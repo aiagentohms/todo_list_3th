@@ -1,0 +1,119 @@
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    background: #f3f1ec;
+    color: #222;
+    font-family: Arial, sans-serif;
+}
+
+.page {
+    width: 90%;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 60px 0;
+}
+
+header { margin-bottom: 45px; }
+.small-title { font-size: 11px; letter-spacing: 3px; }
+
+h1 {
+    margin: 8px 0;
+    font-size: 40px;
+    font-weight: 400;
+}
+
+#today, small, .todo-text p, .footer {
+    color: #777;
+    font-size: 12px;
+}
+
+.layout { display: flex; gap: 55px; }
+.write-box { width: 35%; }
+.list-box { width: 65%; }
+
+h2 {
+    margin-top: 0;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+label {
+    display: block;
+    margin: 18px 0 5px;
+    font-size: 12px;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px 0;
+    border: 0;
+    border-bottom: 1px solid #aaa;
+    background: transparent;
+    outline: none;
+}
+
+textarea { height: 70px; resize: none; }
+
+.add-button {
+    width: 100%;
+    margin-top: 25px;
+    padding: 12px;
+    border: 1px solid #222;
+    background: #222;
+    color: white;
+    cursor: pointer;
+}
+
+.add-button:hover { background: transparent; color: #222; }
+
+.filters {
+    display: flex;
+    gap: 18px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid #bbb;
+}
+
+.filter, .item-buttons button, #clear-completed {
+    border: 0;
+    background: transparent;
+    color: #777;
+    cursor: pointer;
+}
+
+.filter.active {
+    color: #222;
+    text-decoration: underline;
+    text-underline-offset: 5px;
+}
+
+#todo-items { margin: 0; padding: 0; list-style: none; }
+
+.todo-item {
+    display: flex;
+    gap: 14px;
+    padding: 20px 0;
+    border-bottom: 1px solid #ccc;
+}
+
+.check-action { width: 16px; }
+.todo-text { flex: 1; }
+.todo-text p { margin: 5px 0 0; }
+.todo-title { color: #222 !important; font-size: 15px !important; }
+
+.completed .todo-title,
+.completed p {
+    color: #aaa !important;
+    text-decoration: line-through;
+}
+
+.item-buttons { display: flex; gap: 8px; }
+.empty-message { padding: 60px 0; color: #888; text-align: center; }
+.footer { display: flex; justify-content: space-between; padding-top: 16px; }
+#clear-completed:disabled { opacity: 0.3; }
+
+@media (max-width: 700px) {
+    .page { padding: 35px 0; }
+    .layout { flex-direction: column; }
+    .write-box, .list-box { width: 100%; }
+}
