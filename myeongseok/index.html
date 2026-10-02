@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="css/style.css">
+        <script src="js/todo.js" defer></script>
+</head>
+<body>
+        <header class="site-header">
+                <p class="site-brand">
+                        <span class="brand-dot" aria-hidden="true"></span>
+                        <span class="brand-number">03</span>
+                        <strong>오명석의 To-do</strong>
+                </p>
+        </header>
+
+        <main class="page-shell">
+                <section class="todo-app" aria-labelledby="page-title">
+                        <p class="eyebrow">TEAM3 - OMS - TODO PAGE</p>
+                        <h1 id="page-title">오명석의 To-do</h1>
+
+                        <form id="todo-form" class="todo-form">
+                                <label for="todo-input" class="sr-only">할 일</label>
+                                <input
+                                        type="text"
+                                        id="todo-input"
+                                        placeholder="할 일을 입력하세요(100자 이내)"
+                                        maxlength="100"
+                                        autocomplete="off"
+                                        required
+                                >
+                                <button type="submit">추가</button>
+                        </form>
+
+                        <ul id="todo-list" class="todo-list" aria-live="polite"></ul>
+
+                        <p id="empty-message" class="empty-message">
+                                등록된 할 일이 없습니다.
+                        </p>
+
+                        <p class="help-text">
+                                할 일을 추가한 뒤 완료, 수정, 삭제 기능을 확인해 보세요.
+                        </p>
+                </section>
+        </main>
+</body>
+</html>

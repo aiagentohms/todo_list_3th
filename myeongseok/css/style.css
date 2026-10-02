@@ -1,0 +1,197 @@
+:root {
+    --background: #0c0d10;
+    --panel: #171816;
+    --item: #242523;
+    --line: #3d3e38;
+    --yellow: #ffd633;
+    --text: #f5f5f2;
+    --muted: #9a9b94;
+}
+
+/* 반복 사용 색상 정의 */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: var(--background);
+    color: var(--text);
+    font-family: Arial, "Noto Sans KR", sans-serif;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+.site-header {
+    min-height: 56px;
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+}
+
+.site-brand {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    display: grid;
+}
+
+.brand-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--yellow);
+    box-shadow: 0 0 18px var(--yellow)
+}
+
+.brand-number {
+    color: var(--muted);
+    letter-spacing: 4px;
+    font-size: 12px;
+}
+
+.site-brand strong {
+    font-size: 28px;
+}
+
+.page-shell {
+    min-height: calc(100vh - 62px);
+    margin: 0 6px 6px;
+    border: 1px solid #272922;
+    border-radius: 20px;
+    background: linear-gradient(120deg, #0a0b0f 35%, #202016);
+    display: grid;
+    place-items: center;
+    padding: 40px 20px;
+}
+/* 화면 최대는 560, 화면이 좁아지면 화면 너비에 맞추기 */
+.todo-app {
+    width: min(100%, 560px);
+}
+/* 03 - YELLOW - TODO PAGE 꾸미기 */
+.eyebrow {
+    margin: 0 0 16px;
+    color: var(--yellow);
+    font-size: 12px;
+    letter-spacing: 3px;
+}
+
+/* h1 사이즈 조절 */
+h1 {
+    margin: 0 0 40px;
+    font-size: 48px;
+    line-height: 1.1;
+}
+
+.todo-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+/* 인풋 폼 꾸미기 */
+.todo-form input {
+    flex: 1;
+    min-width: 0;
+    padding: 14px 16px;
+    gorder: 1px solid var(--line);
+    border-radius: 12px;
+    background: #292a27;
+    color: var(--text);
+    outline: none;
+}
+
+.todo-form input:focus {
+    border-color: var(--yellow);
+}
+
+.todo-form button {
+    border: 0;
+    border-radius: 12px;
+    padding: 0 20px;
+    background: var(--yellow);
+    color: #111;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.todo-list {
+    margin:0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 8px;
+}
+
+.todo-item {
+    min-height: 54px;
+    padding: 10px 14px;
+    border-radius: 12px;
+    background: var(--item);
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto auto;
+    align-items: center;
+    gap: 12px;
+}
+
+.todo-text {
+    overflow-wrap: anywhere;
+}
+
+/* 수정삭제 버튼 디자인 */
+
+.todo-edit,
+.todo-delete {
+    border: 0;
+    background: transparent;
+    color: #bfc9cf;
+    cursor: pointer;
+}
+
+.todo-edit:hover,
+.todo-delete:hover {
+    color: var(--yellow);
+}
+/* 수정삭제 버튼 디자인 완*/
+
+/* 목록 체크시 취소선 */
+.todo-item.is-completed .todo-text {
+    color: var(--muted);
+    text-decoration: line-through;
+}
+/* 목록 체크시 취소선 완*/
+
+.empty-message,
+.help-text {
+    color: var(--muted);
+    font-size: 13px;
+}
+/* 할 일이 비어있을 경우 노출 상자 디자인 */
+.empty-message {
+    padding: 16px;
+    border: 1px dashed var(--line);
+    border-radius: 12px;
+    text-align: center;
+}
+/* 할 일이 비어있을 경우 노출 상자 디자인 완*/
+
+.help-text {
+    margin-top: 18px;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
