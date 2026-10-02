@@ -1,0 +1,11 @@
+.todo-editor {
+    display: none;
+}
+
+.todo-editor.is-open {
+    display: block;
+}
+
+.completed-text {
+    text-decoration: line-through;
+}

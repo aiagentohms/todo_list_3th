@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-do list</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body class="bg-white text-[#B04BFF]">
+    <header class="bg-[#B04BFF] px-4 py-6 text-white">
+        <h1 class="mx-auto max-w-3xl text-3xl font-bold">To-do list</h1>
+    </header>
+    <main class="mx-auto max-w-3xl space-y-6 px-4 py-8">
+        <section class="date-picker rounded-lg border border-[#B04BFF] p-6">
+            <h2 class="mb-4 text-xl font-bold">날짜 선택</h2>
+            <label for="todo-date" class="mb-2 block font-semibold">할 일 날짜</label>
+            <input type="date" id="todo-date" name="date" class="w-full rounded-md border border-[#B04BFF] bg-white p-3 text-[#B04BFF]">
+        </section>
+
+        <section id="todo-editor" class="todo-editor rounded-lg border border-[#B04BFF] p-6">
+            <h2 id="editor-heading" class="mb-4 text-xl font-bold">할 일 추가 <span id="selected-date"></span></h2>
+            <form id="todo-form">
+                <div class="form-field mb-4">
+                    <label for="todo-title" class="mb-2 block font-semibold">제목</label>
+                    <input type="text" id="todo-title" name="title" class="w-full rounded-md border border-[#B04BFF] bg-white p-3 text-[#B04BFF]">
+                </div>
+                <div class="form-field mb-4">
+                    <label for="todo-content" class="mb-2 block font-semibold">내용</label>
+                    <textarea id="todo-content" name="content" class="min-h-24 w-full rounded-md border border-[#B04BFF] bg-white p-3 text-[#B04BFF]"></textarea>
+                </div>
+                <button type="submit" id="todo-submit" class="rounded-md border border-[#B04BFF] bg-[#B04BFF] px-5 py-3 font-bold text-white hover:bg-white hover:text-[#B04BFF]">추가</button>
+            </form>
+        </section>
+
+        <section class="todo-section rounded-lg border border-[#B04BFF] p-6">
+            <h2 id="list-heading" class="mb-4 text-xl font-bold">선택한 날짜의 할 일</h2>
+            <p id="list-message" class="mb-3">날짜를 선택하세요.</p>
+            <ul id="todo-list" class="space-y-3"></ul>
+        </section>
+    </main>
+    <script src="./js/todo.js"></script>
+</body>
+
+</html>
