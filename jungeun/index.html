@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>내 업보들</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link rel="stylesheet" href="./css/style.css">
+  <script src="./js/todo.js" defer></script>
+</head>
+<body class="min-h-screen text-[#252235]">
+  <main class="mx-auto flex min-h-screen w-full max-w-[1280px] flex-col justify-center px-5 py-10">
+    <header class="mb-8 px-1">
+      <h1 class="text-4xl font-bold sm:text-5xl">내 업보들</h1>
+      <p id="today" class="mt-2 text-lg text-[#818193]" aria-label="오늘 날짜"></p>
+    </header>
+
+    <section class="task-panel rounded-lg bg-white px-5 py-7 sm:px-8 sm:py-8" aria-label="Kanban todo board">
+      <form id="todo-form">
+        <!-- 입력창과 버튼을 같은 줄에 배치하고 줄 전체를 박스 가운데에 둡니다. -->
+        <div class="mx-auto flex w-full max-w-xl items-center gap-3">
+          <!-- 최대 입력 글자 수는 숫자로 지정합니다. 입력창의 id는 하나만 사용합니다. -->
+          <input id="todo-input" name="todo" type="text" maxlength="200" lang="ko" required autocomplete="off"
+            placeholder="친구들아, 니선니책이다." aria-label="새로 추가할 업보"
+            class="min-w-0 flex-1 rounded-md border-2 border-[#e8e8f0] bg-white px-6 py-4 text-base outline-none placeholder:text-[#858595] focus:border-black sm:text-xl">
+          <!-- 버튼이 줄바꿈되거나 줄어들지 않도록 설정합니다. -->
+          <button type="submit" class="shrink-0 whitespace-nowrap rounded-md bg-black px-5 py-4 font-semibold text-white hover:bg-neutral-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black sm:px-8 sm:text-lg">＋ 업보 추가</button>
+        </div>
+      </form>
+
+      <div class="mt-7 grid grid-cols-1 gap-4 md:grid-cols-3" aria-label="Task stages">
+        <section class="kanban-column rounded-lg bg-neutral-100 p-4" aria-labelledby="backlog-title">
+          <h2 id="backlog-title" class="flex items-center justify-between font-semibold"><span>Backlog</span><span id="backlog-count" class="count-badge">0</span></h2>
+          <ul id="backlog-list" class="mt-4 space-y-3" aria-label="Backlog tasks"></ul>
+          <p id="backlog-empty" class="empty-note">빈칸일 수가 없는데...</p>
+        </section>
+        <section class="kanban-column rounded-lg bg-neutral-100 p-4" aria-labelledby="progress-title">
+          <h2 id="progress-title" class="flex items-center justify-between font-semibold"><span>In Progress</span><span id="progress-count" class="count-badge">0</span></h2>
+          <ul id="progress-list" class="mt-4 space-y-3" aria-label="In progress tasks"></ul>
+          <p id="progress-empty" class="empty-note">쌓여요</p>
+        </section>
+        <section class="kanban-column rounded-lg bg-neutral-100 p-4" aria-labelledby="done-title">
+          <h2 id="done-title" class="flex items-center justify-between font-semibold"><span>Done</span><span id="done-count" class="count-badge">0</span></h2>
+          <ul id="done-list" class="mt-4 space-y-3" aria-label="Done tasks"></ul>
+          <p id="done-empty" class="empty-note">완료된 업보들로 채우세요</p>
+        </section>
+      </div>
+
+      <footer class="task-footer mt-7 flex items-center justify-between gap-3 border-t border-[#e4e4ec] pt-6 text-sm text-[#818193] sm:text-base">
+        <span id="tasks-left" aria-live="polite" lang="ko">미래의 나에게 넘길 일: 0건</span>
+        <!-- 남은 일 안내와 완료 정리 버튼 사이에 조회 영역을 둡니다. -->
+        <form id="search-form" class="task-search" role="search" aria-label="할 일 조회">
+          <input id="search-input" type="search" maxlength="200" placeholder="업보 검색" aria-label="조회할 할 일" autocomplete="off">
+          <button type="submit">조회</button>
+          <span id="search-result" aria-live="polite"></span>
+        </form>
+        <button id="clear-completed" type="button" title="완료한 일만 비웁니다" aria-label="증거 인멸: 완료한 일만 비우기" class="disabled:cursor-not-allowed disabled:opacity-50" disabled>증거 인멸</button>
+      </footer>
+    </section>
+    <p class="mt-6 text-center text-sm text-[#818193]">
+  © 2026 axfehlerlee · 니선니책(내업보들). All rights reserved.
+</p>
+</main>
+
+  <template id="tpl-item">
+    <li class="rounded-md border border-[#ececf2] bg-white p-4">
+      <div class="flex items-start gap-2">
+        <span class="task-text min-w-0 flex-1 break-words"></span>
+        <button type="button" class="edit-action text-sm hover:underline">말 바꾸기</button>
+        <button type="button" class="delete-action text-xl leading-none">×</button>
+      </div>
+    </li>
+  </template>
+</body>
+</html>

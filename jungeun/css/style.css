@@ -1,0 +1,31 @@
+/* 테일윈드가 배치와 색상을 처리하며, 아래 규칙은 페이지 배경과 동적 상태를 보완합니다. */
+/* 페이지 배경은 검정색으로, 배경 위의 제목은 흰색으로 표시합니다. */
+body { background: #000; }
+header h1 { color: #fff; }
+
+/* 모든 버튼은 검정 배경과 흰색 글자를 사용합니다. */
+button { background: #000; color: #fff; }
+button:hover { background: #222; color: #fff; }
+button:focus-visible { outline: 2px solid #000; outline-offset: 2px; }
+/* 작은 수정·삭제·완료 정리 버튼에도 여백과 모서리를 적용합니다. */
+.edit-action, .delete-action, #clear-completed { padding: .35rem .6rem; border-radius: .25rem; }
+.kanban-column { min-height: 330px; }
+.count-badge { min-width: 1.8rem; padding: .15rem .5rem; color: #555; text-align: center; font-size: .85rem; }
+.empty-note { margin-top: 4rem; color: #9292a2; text-align: center; font-size: .9rem; }
+.task-text.done { color: #9999a8; text-decoration: line-through; }
+
+/* 좌우 영역의 너비를 같게 두어 조회 영역을 보드 중앙에 배치합니다. */
+.task-footer { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; gap: 1rem; }
+#tasks-left { justify-self: start; }
+#clear-completed { justify-self: end; white-space: nowrap; }
+.task-search { display: grid; grid-template-columns: minmax(0, 12rem) auto; align-items: center; gap: .5rem; }
+.task-search input { min-width: 0; width: 100%; padding: .4rem .6rem; border: 1px solid #e4e4ec; border-radius: .25rem; color: #252235; }
+.task-search button { padding: .4rem .8rem; border-radius: .25rem; white-space: nowrap; }
+#search-result { grid-column: 1 / -1; text-align: center; font-size: .85rem; }
+#search-result:empty { display: none; }
+/* 좁은 화면에서는 좌우 안내 아래에 조회 영역을 가운데 배치합니다. */
+@media (max-width: 760px) {
+  .task-footer { grid-template-columns: minmax(0, 1fr) auto; }
+  .task-search { grid-column: 1 / -1; grid-row: 2; justify-self: center; max-width: 100%; }
+  #clear-completed { grid-column: 2; grid-row: 1; }
+}
