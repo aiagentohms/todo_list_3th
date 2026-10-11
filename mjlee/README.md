@@ -64,7 +64,7 @@ python3 -m http.server 8000
 ## 폴더 구조
 
 ```text
-.
+mjlee/
 ├── assets/          # 영수증 배경, 바코드 이미지, 파비콘, 글꼴
 ├── css/
 │   ├── style.css
